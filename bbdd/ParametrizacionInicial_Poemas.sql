@@ -20,7 +20,7 @@ author_name VARCHAR2(20),
 author_surname VARCHAR2(30),
 author_birthdate DATE,
 author_description VARCHAR2(750),
-CONSTRAINT PK_ID_USER PRIMARY KEY(id_user)
+CONSTRAINT PK_ID_AUTHOR PRIMARY KEY(id_author)
 );
 
 
