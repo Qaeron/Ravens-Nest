@@ -52,7 +52,7 @@
     });
 </script>
 <%
-    int poemaId = Integer.parseInt(request.getParameter("idpoema"));
+    int idPoema = Integer.parseInt(request.getParameter("idpoema"));
     Database db = new Database();
     PoemaDao poemaDao = new PoemaDao(db.getConnection());
     Poema poema;
@@ -61,7 +61,7 @@
         response.sendRedirect("login.jsp");
     }
     try {
-        poema = poemaDao.findById(poemaId).get();
+        poema = poemaDao.findById(idPoema).get();
 %>
 <div class="container" style="margin-top: 20px ! important">
 
@@ -83,7 +83,7 @@
         ReviewDao reviewDao = new ReviewDao(db.getConnection());
         Review review = null;
         try {
-            review = reviewDao.findById(poemaId, currentUser.getIdUsuario()).orElseThrow(new Supplier<Throwable>() {
+            review = reviewDao.findById(idPoema, currentUser.getIdUsuario()).orElseThrow(new Supplier<Throwable>() {
                 @Override
                 public Throwable get() {
                     return new Exception();
@@ -99,8 +99,8 @@
             <input name="review" type="text" class="form-control w-25" id="review" value="<% out.print(review.getRating()); %>">
             <input name="description" type="text" class="form-control w-25" id="description" value="<% out.print(review.getContenidoReview()); %>">
         </div>
-        <input type="hidden" name="idUsuario" value="<%=currentUser.getIdUsuario()%>">
-        <input type="hidden" name="idpoema" value="<%=poemaId%>">
+        <input type="hidden" name="idusuario" value="<%=currentUser.getIdUsuario()%>">
+        <input type="hidden" name="idpoema" value="<%=idPoema%>">
         <button type="submit" class="btn btn-warning">Modify Review</button>
     </form>
     <div id="result1"></div>
@@ -111,11 +111,11 @@
 <form id="form2">
     <div class="mb-2">
         <label for="newreview" class="form-label">Review:</label>
-        <input name="newreview" type="text" class="form-control w-25" id="newreview" value="">
-        <input name="newdescription" type="text" class="form-control w-25" id="newdescription" value="">
+        <input name="newreview" type="text" class="form-control w-25" id="newreview" value="Rating">
+        <input name="newdescription" type="text" class="form-control w-25" id="newdescription" value="Description">
     </div>
     <input type="hidden" name="idusuario" value="<%=currentUser.getIdUsuario()%>">
-    <input type="hidden" name="idpoema" value="<%=poemaId%>">
+    <input type="hidden" name="idpoema" value="<%=idPoema%>">
     <button type="submit" class="btn btn-warning">Create Review</button>
 </form>
 <div id="result2"></div>

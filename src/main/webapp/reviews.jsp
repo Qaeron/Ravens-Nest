@@ -51,8 +51,8 @@
                         for (Review review: reviews) {
             %>
             <li class="list-group-item" style="width: 50% ! important">
-                <a target="_blank" href="review.jsp?idreview=<%= review.getIdReview() %>"></a>
-                <p><%= review.getPoema().getTitulo() %> -- <%= review.getRating() %> | <%= review.getUsuario().getNombre() %> </p>
+                <a target="_blank" href="review.jsp?idreview=<%= review.getIdReview() %>"><%= review.getPoema().getTitulo() %></a>
+                <p><%= review.getRating() %> | <%= review.getUsuario().getNombre() %> </p>
             </li>
             <%
                 }

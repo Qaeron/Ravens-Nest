@@ -49,7 +49,7 @@
                         for (Poema poema: poemas) {
             %>
             <li class="list-group-item" style="width: 50% ! important">
-                <a target="_blank" href="poema.jsp?idzapato=<%= poema.getIdPoema() %>"></a>
+                <a target="_blank" href="poema.jsp?idpoema=<%= poema.getIdPoema() %>"><%= poema.getTitulo() %> | </a>
                 <p><%= poema.getAutor().getNombreAutor() %> <%= poema.getAutor().getApellidoAutor() %> | </p>
             </li>
             <%
@@ -64,11 +64,11 @@
             } else {
                 // Acceder a la bbdd y recuperar todos los poemas filtrados por buscador
                 try {
-                    List<Poema> poema = poemaDao.findAll(searchText);
+                    List<Poema> poemas = poemaDao.findAll(searchText);
                     for (Poema poema: poemas) {
             %>
             <li class="list-group-item" style="width: 50% ! important">
-                <a target="_blank" href="poema.jsp?idzapato=<%= poema.getIdPoema() %>"></a>
+                <a target="_blank" href="poema.jsp?idpoema=<%= poema.getIdPoema() %>"></a>
                 <p><%= poema.getAutor().getNombreAutor() %> <%= poema.getAutor().getApellidoAutor() %> | </p>
             </li>
             <%
