@@ -32,7 +32,7 @@ public class ReviewDao {
 
 
     public ArrayList<Review> findAll() throws SQLException {
-        String sql = "SELECT * FROM REVIEWS ORDER BY review_rating";
+        String sql = "SELECT * FROM REVIEWS";
         ArrayList<Review> reviews = new ArrayList<>();
 
         PreparedStatement statement = connection.prepareStatement(sql);

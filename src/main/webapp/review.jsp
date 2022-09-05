@@ -33,7 +33,6 @@
         review = reviewDao.findById(reviewId).get();
 %>
 <div class="container" style="margin-top: 20px ! important">
-
     <div class="col-sm-6" style="width:50% ! important; padding-bottom:20px ! important;">
         <div class="card text-center">
             <div class="card-header">
